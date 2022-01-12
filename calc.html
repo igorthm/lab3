@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS Calculator</title>
+
+    <script src="js_calc.js" defer></script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+            font-weight: normal;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            background-color: #e5e5f7;
+            opacity: 0.777;
+            background-image: radial-gradient(circle at center center, #444CF7, #e5e5f7), repeating-radial-gradient(circle at center center, #444CF7, #444cf7, 10px, transparent 20px, transparent 10px);
+            background-repeat: no-repeat;
+        }
+
+        .calc {
+            width: 500px;
+            max-width: 90hv;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(211, 211, 211, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            grid-gap: 6px;
+            grid-template-columns: repeat(4, 90px);
+            grid-template-rows: minmax(120px, auto) repeat(5, 90px);
+        }
+
+        .calculator-grid>button {
+            cursor: pointer;
+            font-size: 2rem;
+            outline: none;
+            border: transparent;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 4px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+
+        }
+
+        .calculator-grid>button:hover {
+            background-color: rgba(211, 211, 211, 0.479);
+        }
+
+        .span-two {
+            grid-column: span 2;
+            color: #f7f7f7;
+            background-color: rgba(139, 0, 139, 0.8);
+        }
+
+        .output {
+            min-height: 86px;
+            grid-column: 1 / -1;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            flex-direction: column;
+            padding: 10px;
+            word-wrap: break-word;
+            word-break: break-all;
+            border-radius: 10px;
+        }
+
+        .output .previous-operand {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.5rem;
+        }
+
+        .output .current-operand {
+            color: white;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc">
+        <div class="calculator-grid">
+            <div class="output">
+                <div data-previous-operand class="previous-operand"></div>
+                <div data-current-operand class="current-operand">0</div>
+            </div>
+            <button data-all-clear class="span-two">AC</button>
+            <button data-delete>DEL</button>
+            <button data-operation>÷</button>
+            <button data-number>1</button>
+            <button data-number>2</button>
+            <button data-number>3</button>
+            <button data-operation>*</button>
+            <button data-number>4</button>
+            <button data-number>5</button>
+            <button data-number>6</button>
+            <button data-operation>+</button>
+            <button data-number>7</button>
+            <button data-number>8</button>
+            <button data-number>9</button>
+            <button data-operation>-</button>
+            <button data-number>.</button>
+            <button data-number>0</button>
+            <button data-equals class="span-two">=</button>
+        </div>
+    </div>
+</body>
+
+</html>
